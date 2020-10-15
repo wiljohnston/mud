@@ -120,7 +120,19 @@ module.exports = {
       options: {
         printRejected: true,
         tailwind: true,
-        whitelistPatterns: [/gatsby-/, /glide/, /grid-/]
+        whitelistPatterns: [
+          /gatsby-/,
+          /glide/,
+          /grid-/,
+          /transition-/,
+          /opacity-/,
+          /top-0/,
+          /right-0/,
+          /bottom-0/,
+          /left-0/,
+          /visible/,
+          /hidden/
+        ]
       }
     },
     // `gatsby-plugin-emotion`,
