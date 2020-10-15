@@ -53,6 +53,14 @@ export const query = graphql`
               }
             }
           }
+          videos {
+            video {
+              publicURL
+            }
+            playOnceThenRemove
+            playAfterPreviousFinishes
+            id
+          }
           vectorImage {
             publicURL
           }

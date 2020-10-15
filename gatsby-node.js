@@ -92,6 +92,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       vectorImage: File @fileByRelativePath
       rasterImage: File @fileByRelativePath
       collageImages: [ImageObjectType]
+      videos: [VideoObjectType]
       appearOnScroll: Boolean
       className: String
       html: String
@@ -99,6 +100,13 @@ exports.createSchemaCustomization = ({ actions }) => {
 
     type ImageObjectType @infer {
       image: File @fileByRelativePath
+    }
+
+    type VideoObjectType @infer {
+      video: File @fileByRelativePath
+      id: String
+      playOnceThenRemove: Boolean
+      playAfterPreviousFinishes: Boolean
     }`
   ];
   createTypes(typeDefs);

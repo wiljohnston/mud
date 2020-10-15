@@ -12,6 +12,8 @@ const Video = ({
   playsInline,
   poster,
   src,
+  id,
+  onEnded,
   style
 }) => {
   const { scrollTop, windowHeight } = useContext(DocumentContext);
@@ -29,6 +31,7 @@ const Video = ({
       };
 
       videoRef.current.onplaying = () => {
+        console.log(`onplaying!`);
         if (videoRef?.current) {
           videoRef.current.playing = true;
         }
@@ -45,9 +48,11 @@ const Video = ({
     const video = videoRef.current;
 
     if (top > -height && top < windowHeight) {
-      if (!video.playing) {
-        video.play();
-      }
+      // if (!video.playing) {
+      //   console.log(`here it is!`);
+      //   video.play();
+      // }
+      console.log(`doing nothing`);
     } else if (video.playing) {
       video.pause();
     }
@@ -62,6 +67,7 @@ const Video = ({
 
     if (playing) {
       if (!video.playing) {
+        console.log(`hitting play`, playing);
         video.play();
       }
     } else if (video.playing) {
@@ -72,6 +78,7 @@ const Video = ({
   return (
     <video
       ref={videoRef}
+      id={id}
       className={className}
       autoPlay={autoPlay}
       muted={muted}
@@ -79,6 +86,7 @@ const Video = ({
       playsInline={playsInline}
       poster={poster}
       style={style}
+      onEnded={onEnded}
     >
       <source src={src}></source>
     </video>
@@ -95,7 +103,9 @@ Video.defaultProps = {
   playsInline: true,
   poster: null,
   src: ``,
-  style: {}
+  style: {},
+  id: ``,
+  onEnded: () => {}
 };
 
 Video.propTypes = {
@@ -108,7 +118,9 @@ Video.propTypes = {
   playsInline: PropTypes.bool,
   poster: PropTypes.string,
   src: PropTypes.string,
-  style: PropTypes.shape({})
+  style: PropTypes.shape({}),
+  onEnded: PropTypes.func,
+  id: PropTypes.string
 };
 
 export default Video;
