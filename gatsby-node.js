@@ -107,6 +107,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       id: String
       playOnceThenRemove: Boolean
       playAfterPreviousFinishes: Boolean
+      loop: Boolean
     }`
   ];
   createTypes(typeDefs);

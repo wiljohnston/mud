@@ -87,7 +87,7 @@ const ArtCollection = ({ className, items }) => {
             itemJSX = (
               <figure className="w-full relative block">
                 {item.videos.map((videoData, videoIndex) => {
-                  const { playOnceThenRemove, id, video } = videoData;
+                  const { playOnceThenRemove, id, video, loop } = videoData;
 
                   const onEnded = () => {
                     if (typeof document !== `undefined` && playOnceThenRemove) {
@@ -107,7 +107,7 @@ const ArtCollection = ({ className, items }) => {
                   return (
                     <Video
                       key={id}
-                      loop={!playOnceThenRemove}
+                      loop={loop}
                       onEnded={onEnded}
                       playing={!!videosPlayingNow[id]}
                       id={id}

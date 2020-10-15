@@ -39,24 +39,24 @@ const Video = ({
     }
   }, [videoRef.current]);
 
-  useEffect(() => {
-    if (!autoPause || !loaded) {
-      return;
-    }
+  // useEffect(() => {
+  //   if (!autoPause || !loaded) {
+  //     return;
+  //   }
 
-    const { height, top } = videoRef.current.getBoundingClientRect();
-    const video = videoRef.current;
+  //   const { height, top } = videoRef.current.getBoundingClientRect();
+  //   const video = videoRef.current;
 
-    if (top > -height && top < windowHeight) {
-      // if (!video.playing) {
-      //   console.log(`here it is!`);
-      //   video.play();
-      // }
-      console.log(`doing nothing`);
-    } else if (video.playing) {
-      video.pause();
-    }
-  }, [scrollTop]);
+  //   if (top > -height && top < windowHeight) {
+  //     // if (!video.playing) {
+  //     //   console.log(`here it is!`);
+  //     //   video.play();
+  //     // }
+  //     console.log(`doing nothing`);
+  //     // } else if (video.playing) {
+  //     // video.pause();
+  //   }
+  // }, [scrollTop]);
 
   useEffect(() => {
     if (!loaded) {
@@ -67,10 +67,11 @@ const Video = ({
 
     if (playing) {
       if (!video.playing) {
-        console.log(`hitting play`, playing);
+        console.log(`hitting play`, playing, id);
         video.play();
       }
     } else if (video.playing) {
+      console.log(`hitting pause`, id);
       video.pause();
     }
   }, [loaded, playing, videoRef.current]);

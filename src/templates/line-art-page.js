@@ -20,7 +20,7 @@ const LineArtPage = ({ data, location }) => {
         path={location.pathname}
       />
 
-      <Layout className="contact-page w-full relative pt-8 bg-paper">
+      <Layout className="contact-page w-full relative bg-paper">
         <ArtCollection
           className="w-full relative block"
           items={frontmatter.items}
@@ -60,6 +60,7 @@ export const query = graphql`
             playOnceThenRemove
             playAfterPreviousFinishes
             id
+            loop
           }
           vectorImage {
             publicURL
