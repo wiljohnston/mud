@@ -131,7 +131,15 @@ module.exports = {
           /bottom-0/,
           /left-0/,
           /visible/,
-          /hidden/
+          /hidden/,
+          /v1/,
+          /v2/,
+          /f1/,
+          /f2/,
+          /f3/,
+          /f4/,
+          /b1/,
+          /b2/
         ]
       }
     },
