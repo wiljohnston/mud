@@ -16,7 +16,7 @@ const Header = () => {
         menuActive ? ` menu-active` : ``
       } transition-transform w-full fixed top-0 right-0 left-0 z-30 py-2`}
     >
-      <nav className="grid">
+      <nav className="grid px-4">
         <div className="grid-end-12 flex items-center justify-start">
           <button
             type="button"
