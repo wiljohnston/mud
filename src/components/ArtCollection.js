@@ -50,7 +50,7 @@ const ArtCollection = ({ className, items }) => {
             );
             break;
 
-          case `Scalar image`:
+          case `Vector image`:
             itemJSX = (
               <img
                 src={item.vectorImage.publicURL}

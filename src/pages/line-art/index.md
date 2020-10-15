@@ -13,13 +13,13 @@ items:
         id: fks-td
         loop: true
   - type: html
-    html: "<h1 class='v1'>MUD</h1>"
+    html: "<h1 class='v1 py-8'>MUD</h1>"
+    alignment: 4
+  - type: Vector image
+    vectorImage: /uploads/ladies-sitting.svg
+    width: 12
     alignment: 1
-  # - type: Vector image
-  #   vectorImage: /uploads/the-gang-original- (1).svg
-  #   width: 10
-  #   alignment: 2
-  #   appearOnScroll: true
+    appearOnScroll: true
   - type: Video set
     width: 6
     alignment: 7
