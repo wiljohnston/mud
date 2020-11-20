@@ -12,6 +12,20 @@
   transform: translate3d(-50%, -50%, 0);
 }
 
+.text-shadow {
+  &-paper {
+    text-shadow: -7px -1px 1px theme("colors.paper");
+  }
+
+  &-paper-dark {
+    text-shadow: -7px -1px 1px theme("colors.paper-dark");
+  }
+
+  &-brown {
+    text-shadow: -7px -1px 1px theme("colors.brown");
+  }
+}
+
 .transform-center-invert-x {
   top: 50%;
   left: 50%;

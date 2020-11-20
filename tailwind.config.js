@@ -3,7 +3,9 @@ module.exports = {
     colors: {
       white: `#FFFFFF`,
       black: `#000000`,
-      paper: `#FFF8F0`
+      paper: `#FFF8F0`,
+      "paper-dark": `#ffb968`,
+      brown: `#5d3200`
     },
     screens: {
       xs: {

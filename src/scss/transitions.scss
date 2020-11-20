@@ -15,6 +15,14 @@ $fast-transition: $fast-transition-speed $ease-out-cubic;
   transition: $default-transition background;
 }
 
+.transition-filter {
+  transition: $default-transition filter;
+
+  &--slow {
+    transition: $slow-transition filter;
+  }
+}
+
 .transition-opacity {
   transition: $default-transition opacity;
 }
@@ -25,6 +33,16 @@ $fast-transition: $fast-transition-speed $ease-out-cubic;
 
 .transition-opacity-transform {
   transition: $default-transition opacity, $default-transition transform;
+}
+
+//
+
+.transform-0 {
+  transform: translate3d(0, 0, 0);
+}
+
+.transform-down {
+  transform: translate3d(0, 10px, 0);
 }
 
 //

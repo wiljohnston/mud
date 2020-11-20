@@ -2,7 +2,7 @@
 // import { PropTypes } from "prop-types";
 
 import React from "react";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import Footer from "~components/Footer";
 import Layout from "~components/Layout";
 import SEO from "~components/SEO";
@@ -20,8 +20,10 @@ const IndexPage = ({ data, location }) => {
       />
 
       <Layout className="index-page w-full relative pt-16">
-        <section className="grid">
+        <section className="grid f3">
           <h1 className="grid-end-12 my-8 f3">{frontmatter.title}</h1>
+          <Link to="/line-art">Line art</Link>
+          <Link to="/collage">Collage</Link>
         </section>
       </Layout>
 

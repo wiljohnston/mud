@@ -8,10 +8,8 @@ import Layout from "~components/Layout";
 import SEO from "~components/SEO";
 import ArtCollection from "~components/ArtCollection";
 
-const LineArtPage = ({ data, location }) => {
+const CollagePage = ({ data, location }) => {
   const { frontmatter } = data.markdownRemark;
-
-  console.log(`frontmatter`, frontmatter);
 
   return (
     <>
@@ -34,10 +32,10 @@ const LineArtPage = ({ data, location }) => {
   );
 };
 
-export default LineArtPage;
+export default CollagePage;
 
 export const query = graphql`
-  query LineArtPage($id: String!) {
+  query CollagePage($id: String!) {
     markdownRemark(id: { eq: $id }) {
       frontmatter {
         title
@@ -45,8 +43,9 @@ export const query = graphql`
         seoKeywords
         items {
           type
-          width
           id
+          title
+          width
           alignment
           rasterImage {
             childImageSharp {

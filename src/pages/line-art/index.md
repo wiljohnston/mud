@@ -3,8 +3,23 @@ templateKey: line-art-page
 title: Line art
 items:
   - type: Video set
+    width: 12
+    alignment: 1
+    videos:
+      - video: /uploads/the-gang-original-ripple-loop.webm
+        id: tg-ripple
+        loop: true
+      - video: /uploads/the-gang-original-eyes.webm
+        id: tg-eyes
+        loop: false
+  - type: html
+    html: "<h1 class='v1 py-8'>MUD</h1>"
+    alignment: 1
+    width: 12
+  - type: Video set
     width: 7
     alignment: 1
+    appearOnScroll: true
     videos:
       - video: /uploads/frekklz_dots-only-lessqual.webm
         id: fkz-dots
@@ -12,9 +27,6 @@ items:
       - video: /uploads/frekklz_all-td-lessqual.webm
         id: fks-td
         loop: true
-  - type: html
-    html: "<h1 class='v1 py-8'>MUD</h1>"
-    alignment: 4
   - type: Vector image
     vectorImage: /uploads/ladies-sitting.svg
     width: 12

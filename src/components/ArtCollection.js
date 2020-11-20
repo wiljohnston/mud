@@ -3,13 +3,17 @@ import React, { useState, useEffect } from "react";
 import { unmountComponentAtNode } from "react-dom";
 import Img from "gatsby-image";
 import LottieAnimation from "~components/LottieAnimation";
-import ImageCollage from "~components/ImageCollage";
+import ImageCollageBuild from "~components/ImageCollageBuild";
+import Filterer from "~components/Filterer";
 import AppearOnScroll from "~components/AppearOnScroll";
 import Video from "~components/Video";
 
 const ArtCollection = ({ className, items }) => {
-  const [readyToDisplay, setReadyToDisplay] = useState(false);
+  const [readyToDisplay, setReadyToDisplay] = useState(true); // false - TODO
   const [videosPlayingNow, setVideosPlayingNow] = useState({});
+  const [hoveringNow, setHoveringNow] = useState({});
+
+  console.log(`hoveringNow`, hoveringNow);
 
   const toCallOnceLoaded = [];
 
@@ -76,10 +80,34 @@ const ArtCollection = ({ className, items }) => {
 
           case `collage`:
             itemJSX = (
-              <ImageCollage
-                className="w-full relative block"
-                gatsbyImages={item.collageImages.map(({ image }) => image)}
-              />
+              <button type="button" className="w-full relative block">
+                <Filterer
+                  className="w-full relative block"
+                  value={hoveringNow[item.id] ? 1 : 0}
+                >
+                  <ImageCollageBuild
+                    className="w-full relative block"
+                    gatsbyImages={item.collageImages.map(({ image }) => image)}
+                    movementInterval={150}
+                    craziness={0.7}
+                    evolveFactor={0.9}
+                  />
+                </Filterer>
+
+                {item.title && (
+                  <div
+                    className={`transition-opacity-transform w-full h-full absolute flex items-center justify-center p-4 top-0 right-0 bottom-0 left-0 ${
+                      hoveringNow[item.id]
+                        ? `opacity-1 transform-0`
+                        : `opacity-0 transform-down`
+                    }`}
+                  >
+                    <h3 className="f1 mb-2 text-center text-white text-shadow-brown">
+                      {item.title}
+                    </h3>
+                  </div>
+                )}
+              </button>
             );
             break;
 
@@ -88,6 +116,8 @@ const ArtCollection = ({ className, items }) => {
               <figure className="w-full relative block">
                 {item.videos.map((videoData, videoIndex) => {
                   const { playOnceThenRemove, id, video, loop } = videoData;
+
+                  console.log(`videoData`, videoData);
 
                   const onEnded = () => {
                     if (typeof document !== `undefined` && playOnceThenRemove) {
@@ -153,6 +183,18 @@ const ArtCollection = ({ className, items }) => {
         return (
           <li className="w-full grid" key={key}>
             <div
+              onMouseEnter={() =>
+                setHoveringNow(oldState => ({
+                  ...oldState,
+                  [item.id]: true
+                }))
+              }
+              onMouseLeave={() =>
+                setHoveringNow(oldState => ({
+                  ...oldState,
+                  [item.id]: false
+                }))
+              }
               className={`grid-end-${item.width} grid-start-${
                 item.alignment
               } ${item.className || ``}`}
