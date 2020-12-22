@@ -3,7 +3,24 @@ templateKey: line-art-page
 title: Line art
 items:
   - type: Video set
+    width: 7
+    alignment: 1
+    videos:
+      - video: /uploads/frekklz_dots-only-lessqual.webm
+        id: fkz-dots
+        loop: false
+      - video: /uploads/frekklz_all-td-lessqual.webm
+        id: fks-td
+        loop: true
+
+  - type: html
+    html: "<h1 class='v1'>MUD</h1>"
+    appearOnScroll: true
+    alignment: 2
+
+  - type: Video set
     width: 12
+    appearOnScroll: true
     alignment: 1
     videos:
       - video: /uploads/the-gang-original-ripple-loop.webm
@@ -12,26 +29,7 @@ items:
       - video: /uploads/the-gang-original-eyes.webm
         id: tg-eyes
         loop: false
-  - type: html
-    html: "<h1 class='v1 py-8'>MUD</h1>"
-    alignment: 1
-    width: 12
-  - type: Video set
-    width: 7
-    alignment: 1
-    appearOnScroll: true
-    videos:
-      - video: /uploads/frekklz_dots-only-lessqual.webm
-        id: fkz-dots
-        loop: false
-      - video: /uploads/frekklz_all-td-lessqual.webm
-        id: fks-td
-        loop: true
-  - type: Vector image
-    vectorImage: /uploads/ladies-sitting.svg
-    width: 12
-    alignment: 1
-    appearOnScroll: true
+
   - type: Video set
     width: 6
     alignment: 7
@@ -47,6 +45,12 @@ items:
         id: hands-dots-td
         playAfterPreviousFinishes: true
         loop: true
+  - type: Vector image
+    vectorImage: /uploads/ladies-sitting.svg
+    width: 12
+    alignment: 1
+    appearOnScroll: true
+
 seoDescription: ""
 seoKeywords: ""
 ---

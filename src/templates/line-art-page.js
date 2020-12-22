@@ -28,8 +28,6 @@ const LineArtPage = ({ data, location }) => {
           items={frontmatter.items}
         />
       </Layout>
-
-      <Footer />
     </>
   );
 };

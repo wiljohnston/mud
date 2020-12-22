@@ -1,6 +1,6 @@
 ---
 templateKey: index-page
-title: Home
+title: mud
 seoDescription: ""
 seoKeywords: ""
 ---

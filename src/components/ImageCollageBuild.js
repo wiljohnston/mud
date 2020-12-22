@@ -80,6 +80,7 @@ const ImageCollageBuild = ({
               <Img
                 fluid={childImageSharp.fluid}
                 className="w-full relative block"
+                loading="eager"
               />
             </figure>
           );

@@ -24,8 +24,6 @@ const AboutPage = ({ data, location }) => {
           <h1 className="grid-end-12 my-8 f3">{frontmatter.title}</h1>
         </section>
       </Layout>
-
-      <Footer />
     </>
   );
 };

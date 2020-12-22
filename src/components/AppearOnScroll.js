@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 import React, { useContext, useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import { DocumentContext } from "~context/DocumentContext";
 
-const AppearOnScroll = ({ atTop, children, once, onFirstSight }) => {
+const AppearOnScroll = ({ atTop, children, once, onFirstSight, delay = 2 }) => {
   const documentContext = useContext(DocumentContext);
   const containerRef = useRef();
   const [visible, setVisible] = useState(false);
@@ -53,7 +54,7 @@ const AppearOnScroll = ({ atTop, children, once, onFirstSight }) => {
       ref={containerRef}
       className={`${
         visible ? `animation-appear` : `invisible`
-      } animation-delay-2`}
+      } animation-delay-${delay}`}
     >
       {computedChildren}
     </div>

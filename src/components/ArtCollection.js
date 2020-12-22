@@ -4,6 +4,7 @@ import { unmountComponentAtNode } from "react-dom";
 import Img from "gatsby-image";
 import LottieAnimation from "~components/LottieAnimation";
 import ImageCollageBuild from "~components/ImageCollageBuild";
+import ImageCollageParallax from "~components/ImageCollageParallax";
 import Filterer from "~components/Filterer";
 import AppearOnScroll from "~components/AppearOnScroll";
 import Video from "~components/Video";
@@ -12,8 +13,6 @@ const ArtCollection = ({ className, items }) => {
   const [readyToDisplay, setReadyToDisplay] = useState(true); // false - TODO
   const [videosPlayingNow, setVideosPlayingNow] = useState({});
   const [hoveringNow, setHoveringNow] = useState({});
-
-  console.log(`hoveringNow`, hoveringNow);
 
   const toCallOnceLoaded = [];
 
@@ -85,13 +84,25 @@ const ArtCollection = ({ className, items }) => {
                   className="w-full relative block"
                   value={hoveringNow[item.id] ? 1 : 0}
                 >
-                  <ImageCollageBuild
-                    className="w-full relative block"
-                    gatsbyImages={item.collageImages.map(({ image }) => image)}
-                    movementInterval={150}
-                    craziness={0.7}
-                    evolveFactor={0.9}
-                  />
+                  {item.collageEffect === `build` ? (
+                    <ImageCollageBuild
+                      className="w-full relative block"
+                      gatsbyImages={item.collageImages.map(
+                        ({ image }) => image
+                      )}
+                      movementInterval={150}
+                      craziness={0.7}
+                      evolveFactor={0.9}
+                    />
+                  ) : (
+                    <ImageCollageParallax
+                      className="w-full relative block"
+                      gatsbyImages={item.collageImages.map(
+                        ({ image }) => image
+                      )}
+                      severity={item.collageEffect === `none` ? 0 : 0.014}
+                    />
+                  )}
                 </Filterer>
 
                 {item.title && (
@@ -116,8 +127,6 @@ const ArtCollection = ({ className, items }) => {
               <figure className="w-full relative block">
                 {item.videos.map((videoData, videoIndex) => {
                   const { playOnceThenRemove, id, video, loop } = videoData;
-
-                  console.log(`videoData`, videoData);
 
                   const onEnded = () => {
                     if (typeof document !== `undefined` && playOnceThenRemove) {
@@ -195,13 +204,16 @@ const ArtCollection = ({ className, items }) => {
                   [item.id]: false
                 }))
               }
-              className={`grid-end-${item.width} grid-start-${
+              className={`grid-end-${item.width} xs:grid-end-12 grid-start-${
                 item.alignment
-              } ${item.className || ``}`}
+              } xs:grid-start-1 ${item.className ||
+                ` pt-${itemIndex === 0 ? 0 : 8} pb-${
+                  itemIndex === items.length - 1 ? 0 : 8
+                }`}`}
             >
               {item.appearOnScroll ? (
                 <AppearOnScroll
-                  once
+                  delay={item.appearOnScrollDelay || 2}
                   atTop={itemIndex === 0}
                   onFirstSight={
                     // if it's an animation, and it's appears on scroll, then start playing when it appears

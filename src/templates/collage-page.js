@@ -11,6 +11,8 @@ import ArtCollection from "~components/ArtCollection";
 const CollagePage = ({ data, location }) => {
   const { frontmatter } = data.markdownRemark;
 
+  console.log(frontmatter);
+
   return (
     <>
       <SEO
@@ -26,8 +28,6 @@ const CollagePage = ({ data, location }) => {
           items={frontmatter.items}
         />
       </Layout>
-
-      <Footer />
     </>
   );
 };
@@ -71,6 +71,8 @@ export const query = graphql`
             publicURL
           }
           appearOnScroll
+          appearOnScrollDelay
+          collageEffect
           className
           itemID
           html

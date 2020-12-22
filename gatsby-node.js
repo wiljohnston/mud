@@ -20,9 +20,9 @@ exports.onCreateWebpackConfig = ({ actions }) => {
         "~node_modules": path.resolve(__dirname, `node_modules`),
         "~scss": path.resolve(__dirname, `src/scss`),
         "~utils": path.resolve(__dirname, `src/utils`),
-        "~workers": path.resolve(__dirname, `src/workers`)
-      }
-    }
+        "~workers": path.resolve(__dirname, `src/workers`),
+      },
+    },
   });
 };
 
@@ -46,7 +46,7 @@ exports.createPages = ({ graphql, actions }) => {
         }
       }
     }
-  `).then(result => {
+  `).then((result) => {
     if (result.errors) {
       throw result.errors;
     }
@@ -63,8 +63,8 @@ exports.createPages = ({ graphql, actions }) => {
           `src/templates/${String(frontmatter.templateKey)}.js`
         ),
         context: {
-          id
-        }
+          id,
+        },
       });
     });
 
@@ -96,6 +96,8 @@ exports.createSchemaCustomization = ({ actions }) => {
       appearOnScroll: Boolean
       className: String
       html: String
+      appearOnScrollDelay: Int
+      collageEffect: String
     }
 
     type ImageObjectType @infer {
@@ -108,7 +110,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       playOnceThenRemove: Boolean
       playAfterPreviousFinishes: Boolean
       loop: Boolean
-    }`
+    }`,
   ];
   createTypes(typeDefs);
 };
@@ -124,7 +126,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     createNodeField({
       name: `slug`,
       node,
-      value
+      value,
     });
   }
 };
