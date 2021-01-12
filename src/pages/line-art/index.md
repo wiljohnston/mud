@@ -13,11 +13,6 @@ items:
         id: fks-td
         loop: true
 
-  - type: html
-    html: "<h1 class='v1'>MUD</h1>"
-    appearOnScroll: true
-    alignment: 2
-
   - type: Video set
     width: 12
     appearOnScroll: true
@@ -30,6 +25,11 @@ items:
         id: tg-eyes
         loop: false
 
+  - type: html
+    html: "<h1 class='v2'>EAT MUD</h1>"
+    appearOnScroll: true
+    alignment: 2
+  
   - type: Video set
     width: 6
     alignment: 7
