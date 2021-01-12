@@ -2,6 +2,11 @@
 templateKey: line-art-page
 title: Line art
 items:
+  - type: html
+    html: "<h1 class=''></h1>"
+    appearOnScroll: true
+    alignment: 2
+
   - type: Video set
     width: 7
     alignment: 1
@@ -28,7 +33,7 @@ items:
   - type: html
     html: "<h1 class='v2'>EAT MUD</h1>"
     appearOnScroll: true
-    alignment: 2
+    alignment: 1
   
   - type: Video set
     width: 6

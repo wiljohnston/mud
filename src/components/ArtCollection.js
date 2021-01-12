@@ -207,7 +207,7 @@ const ArtCollection = ({ className, items }) => {
               className={`grid-end-${item.width} xs:grid-end-12 grid-start-${
                 item.alignment
               } xs:grid-start-1 ${item.className ||
-                ` pt-${itemIndex === 0 ? 0 : 8} pb-${
+                ` mt-${itemIndex === 0 ? 0 : 8} mb-${
                   itemIndex === items.length - 1 ? 0 : 8
                 }`}`}
             >
