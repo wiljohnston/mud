@@ -140,7 +140,9 @@ module.exports = {
           /f4/,
           /b1/,
           /b2/,
-          /py-/
+          /py-/,
+          /mb-/,
+          /mt-/
         ]
       }
     },
