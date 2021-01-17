@@ -155,7 +155,7 @@ const ArtCollection = ({ className, items }) => {
                         videoIndex === 0
                           ? `relative block`
                           : `absolute top-0 right-0 bottom-0 left-0`
-                      } ${videosPlayingNow[id] ? `visible` : `hidden`}`}
+                      } ${videosPlayingNow[id] ? `visible` : `visible`}`} // hidden - remove video not showing up bug
                       src={video.publicURL}
                     />
                   );
