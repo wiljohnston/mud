@@ -2,11 +2,6 @@
 templateKey: line-art-page
 title: Line art
 items:
-  - type: html
-    html: "<h1 class=''></h1>"
-    appearOnScroll: true
-    alignment: 2
-
   - type: Video set
     width: 7
     alignment: 1
