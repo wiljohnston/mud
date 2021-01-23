@@ -29,7 +29,6 @@ const AppearOnScroll = ({ atTop, children, once, onFirstSight, delay = 2 }) => {
       if (!visible) {
         setVisible(true);
         if (!seen) {
-          console.log(`first sight`);
           onFirstSight();
           setSeen(true);
         }

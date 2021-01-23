@@ -48,7 +48,6 @@ const IndexPage = ({ data, location }) => {
 
           <nav className="grid-end-10 xs:grid-end-11 grid-start-3 xs:grid-start-2 flex flex-col">
             {frontmatter.links.map(({ link, text }, linkIndex) => {
-              console.log(`link`, link);
               return (
                 <button
                   key={`${text}_${link}`}

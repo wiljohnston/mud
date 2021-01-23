@@ -46,10 +46,10 @@ const LottieAnimation = ({
   useEffect(() => {
     if (lottieObj) {
       if (doPlay) {
-        console.log(`playing ${id}`);
+        // console.log(`playing ${id}`);
         lottieObj.play(id);
       } else {
-        console.log(`pausing ${id}`);
+        // console.log(`pausing ${id}`);
         lottieObj.pause(id);
       }
     }

@@ -66,8 +66,10 @@ const ImageCollageBuild = ({
     <div className={className}>
       <article className="relative">
         {gatsbyImages.map(({ childImageSharp }, imageIndex) => {
+          const key = `image_${imageIndex}`;
           return (
             <figure
+              key={key}
               className={
                 imageIndex === 0
                   ? `w-full relative block`

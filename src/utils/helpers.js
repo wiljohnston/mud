@@ -22,7 +22,7 @@ export function fancyError(error) {
 
 export function fancyLog(log) {
   // eslint-disable-next-line no-console
-  console.log(`%c ${log} `, `background: #BDC6CF; color: #242424`);
+  console.log(`%c ${log} `, `background: #da85e8; color: #f9f9f9`);
 }
 
 export function fancyWarning(warning) {

@@ -1,5 +1,3 @@
-"use strict";
-
 /* eslint-disable func-names */
 
 /* eslint-disable consistent-return */
@@ -13,7 +11,7 @@ const headers = {
   "Access-Control-Allow-Headers": `Content-Type`
 };
 
-exports.handler = function (event) {
+exports.handler = function(event) {
   if (event.httpMethod !== `POST`) {
     return {
       statusCode,
@@ -23,7 +21,6 @@ exports.handler = function (event) {
   }
 
   const data = JSON.parse(event.body);
-  console.log("data received", data);
 
   if (!data) {
     const message = `Required information missing`;

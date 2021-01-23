@@ -31,7 +31,6 @@ const Video = ({
       };
 
       videoRef.current.onplaying = () => {
-        console.log(`onplaying!`);
         if (videoRef?.current) {
           videoRef.current.playing = true;
         }
@@ -67,11 +66,9 @@ const Video = ({
 
     if (playing) {
       if (!video.playing) {
-        console.log(`hitting play`, playing, id);
         video.play();
       }
     } else if (video.playing) {
-      console.log(`hitting pause`, id);
       video.pause();
     }
   }, [loaded, playing, videoRef.current]);

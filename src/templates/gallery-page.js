@@ -10,8 +10,6 @@ import ArtCollection from "~components/ArtCollection";
 const GalleryPage = ({ data, location }) => {
   const { frontmatter } = data.markdownRemark;
 
-  console.log(`frontmatter`, frontmatter);
-
   return (
     <>
       <SEO

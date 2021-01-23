@@ -22,8 +22,6 @@ exports.handler = function(event) {
 
   const data = JSON.parse(event.body);
 
-  console.log("data received", data);
-
   if (!data) {
     const message = `Required information missing`;
 
