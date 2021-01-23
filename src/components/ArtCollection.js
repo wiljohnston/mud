@@ -70,7 +70,7 @@ const ArtCollection = ({ className, items }) => {
                   animationPublicURL={item.animation.publicURL}
                   doLoad
                   animationOptions={{ loop: true }}
-                  id={item.itemID}
+                  id={item.id}
                   className="w-full relative block"
                 />
               </>

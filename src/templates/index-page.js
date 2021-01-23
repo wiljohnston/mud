@@ -12,6 +12,22 @@ const IndexPage = ({ data, location }) => {
   const { device } = useContext(DocumentContext);
   const [hovering, setHovering] = useState(null);
 
+  const dynamicLink = (internal, to, props, children) => {
+    if (internal) {
+      return (
+        <Link {...props} to={to}>
+          {children}
+        </Link>
+      );
+    }
+
+    return (
+      <a href={to} {...props}>
+        {children}
+      </a>
+    );
+  };
+
   return (
     <>
       <SEO
@@ -31,46 +47,46 @@ const IndexPage = ({ data, location }) => {
           </h1>
 
           <nav className="grid-end-10 xs:grid-end-11 grid-start-3 xs:grid-start-2 flex flex-col">
-            <button
-              onMouseEnter={() => setHovering(`line-art`)}
-              onMouseLeave={() => setHovering(null)}
-              type="button"
-              style={{ width: `fit-content` }}
-              className="cursor-pointer mr-20 animation-appear animation-delay-1"
-            >
-              <Link
-                style={{
-                  opacity:
-                    hovering !== `line-art` && hovering !== null ? 0.4 : 1
-                }}
-                className={`transition-opacity--slow ${
-                  device === `mobile` ? `f5` : `f2`
-                }`}
-                to="/line-art"
-              >
-                {`> `}line art
-              </Link>
-            </button>
-
-            <button
-              onMouseEnter={() => setHovering(`collage`)}
-              onMouseLeave={() => setHovering(null)}
-              type="button"
-              style={{ width: `fit-content` }}
-              className="cursor-pointer animation-appear animation-delay-2"
-            >
-              <Link
-                style={{
-                  opacity: hovering !== `collage` && hovering !== null ? 0.4 : 1
-                }}
-                className={`transition-opacity--slow ${
-                  device === `mobile` ? `f5` : `f2`
-                }`}
-                to="/collage"
-              >
-                {`> `}collage
-              </Link>
-            </button>
+            {frontmatter.links.map(({ link, text }, linkIndex) => {
+              console.log(`link`, link);
+              return (
+                <button
+                  key={`${text}_${link}`}
+                  onMouseEnter={() => setHovering(linkIndex)}
+                  onMouseLeave={() => setHovering(null)}
+                  type="button"
+                  style={{ width: `fit-content` }}
+                  className="cursor-pointer animation-appear animation-delay-1"
+                >
+                  {dynamicLink(
+                    !link.startsWith(`http`),
+                    link,
+                    {
+                      style: {
+                        opacity:
+                          hovering !== linkIndex && hovering !== null ? 0.5 : 1
+                      },
+                      className: `transition-opacity--slow ${
+                        device === `mobile` ? `f5` : `f2`
+                      }`
+                    },
+                    text
+                  )}
+                  {/* <Link
+                  style={{
+                    opacity:
+                      hovering !== linkIndex && hovering !== null ? 0.5 : 1
+                  }}
+                  className={`transition-opacity--slow ${
+                    device === `mobile` ? `f5` : `f2`
+                  }`}
+                  to={link}
+                >
+                  {text}
+                </Link> */}
+                </button>
+              );
+            })}
           </nav>
         </section>
       </Layout>
@@ -87,6 +103,10 @@ export const query = graphql`
         title
         seoDescription
         seoKeywords
+        links {
+          link
+          text
+        }
       }
     }
   }

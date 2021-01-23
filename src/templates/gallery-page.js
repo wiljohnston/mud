@@ -3,12 +3,11 @@
 
 import React from "react";
 import { graphql } from "gatsby";
-import Footer from "~components/Footer";
 import Layout from "~components/Layout";
 import SEO from "~components/SEO";
 import ArtCollection from "~components/ArtCollection";
 
-const LineArtPage = ({ data, location }) => {
+const GalleryPage = ({ data, location }) => {
   const { frontmatter } = data.markdownRemark;
 
   console.log(`frontmatter`, frontmatter);
@@ -32,10 +31,10 @@ const LineArtPage = ({ data, location }) => {
   );
 };
 
-export default LineArtPage;
+export default GalleryPage;
 
 export const query = graphql`
-  query LineArtPage($id: String!) {
+  query GalleryPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
       frontmatter {
         title
@@ -43,8 +42,9 @@ export const query = graphql`
         seoKeywords
         items {
           type
-          width
           id
+          title
+          width
           alignment
           rasterImage {
             childImageSharp {
@@ -70,6 +70,8 @@ export const query = graphql`
             publicURL
           }
           appearOnScroll
+          appearOnScrollDelay
+          collageEffect
           className
           itemID
           html

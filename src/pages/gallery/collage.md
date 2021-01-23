@@ -1,5 +1,5 @@
 ---
-templateKey: collage-page
+templateKey: gallery-page
 title: Line art
 items:
   - type: collage

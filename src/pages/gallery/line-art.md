@@ -1,5 +1,5 @@
 ---
-templateKey: line-art-page
+templateKey: gallery-page
 title: Line art
 items:
   - type: Video set
@@ -41,6 +41,7 @@ items:
       - video: /uploads/hands-dots-grow.webm
         id: hands-dots-grow
         playOnceThenRemove: true
+        loop: false
       - video: /uploads/hands-dots-td.webm
         id: hands-dots-td
         playAfterPreviousFinishes: true

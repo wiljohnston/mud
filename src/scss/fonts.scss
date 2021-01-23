@@ -19,7 +19,11 @@
 
 @font-face {
   font-family: "Casa";
-  src: url("../assets/fonts/Casa-Regular.otf") format("opentype");
+  src: url("../assets/fonts/Casa-Regular.otf") format("opentype"),
+    url("../assets/fonts/Casa-Regular.eot") format("embedded-opentype"),
+    url("../assets/fonts/Casa-Regular.woff") format("woff"),
+    url("../assets/fonts/Casa-Regular.woff2") format("woff2"),
+    url("../assets/fonts/Casa-Regular.ttf") format("truetype");
   font-display: block;
   font-weight: normal;
   font-style: normal;

@@ -1,11 +1,11 @@
-# backend:
-  # name: git-gateway
-  # repo: loveandmoney/sitekey
-  # branch: master
+backend:
+  name: git-gateway
+  repo: wiljohnston/mud
+  branch: master
 
 local_backend: true
 
-# site_url: https://sitekey.netlify.com/
+site_url: https://mudportfolio.com
 
 media_folder: static/uploads
 public_folder: uploads
@@ -31,97 +31,213 @@ collections:
             widget: string
             hint: This is used both by the title meta tag and the <h1> tag in the HTML.
 
-          - label: Components
-            name: components
+
+          - label: Links
+            name: links
             widget: list
-            types:
-              - label: Image
-                name: image
-                fields:
-                  - label: Image Source
-                    name: imageSource
-                    widget: image
+            fields:
 
-              - label: Carousel
-                name: carousel
-                fields:
-                  - label: Carousel Images
-                    name: carouselImages
-                    widget: list
-                    field:
-                      {
-                        label: Carousel Image,
-                        name: carouselImage,
-                        widget: image,
-                      }
+              - label: Link
+                name: link
+                widget: string
+                hint: "Internal links look like 'gallery/some-page' without the website URL. External links are more like 'https://www.google.com' – important that the first 4 chars are 'http..' or they might not work. You can use either here."
 
-              - label: Video
-                name: video
+              - label: Label
+                name: text
+                widget: string
+                
+
+                
+          - label: Link One Label
+            hint: This link will go to the '/line-art' directory
+            name: link1Text
+            widget: string
+
+          - label: Link Two Label
+            hint: This link will go to the '/collage' directory
+            name: link2Text
+            widget: string
+
+          - label: SEO Description
+            name: seoDescription
+            required: false
+            widget: string
+            hint: This is used by the description meta tag.
+
+          - label: SEO Keywords
+            name: seoKeywords
+            required: false
+            widget: string
+            hint: This is used by the keywords meta tag.
+
+
+  - name: galleries
+    label: Articles
+    create: true
+    preview_path: /gallery/{{slug}}
+    editor:
+      preview: false
+    folder: src/pages/gallery
+    fields:
+      - label: Template Key
+        name: templateKey
+        widget: hidden
+        default: gallery-page
+
+      - label: Title
+        name: title
+        widget: string
+
+      
+      - label: Art thangs
+        name: items
+        widget: list
+        fields:
+
+          - label: Type of thang
+            name: type
+            widget: select
+            options: ["Raster image", "Vector image", "animation", "collage", "Video set", "html"]
+          
+          - label: Id
+            name: id
+            widget: string
+            hint: Just an abitrary unique id used in da codes, eg "kangaroo-collage"
+
+          - label: Width
+            name: width
+            widget: number
+            min: 1
+            max: 12
+            value_type: int
+            hint: Width of item – 12 would be full screen. 6 would be 1/2 screen.
+
+          - label: Alignment
+            name: alignment
+            widget: number
+            min: 1
+            max: 12
+            value_type: int
+            hint: Starting position of item, in 12ths. So 1 starts at the far left. 7 starts just after halfway, etc.
+
+          - label: Vector Image
+            name: vectorImage
+            widget: image
+            required: false
+            hint: You make these in illustrater – generally files that end in .svg
+
+          - label: Raster Image
+            name: rasterImage
+            widget: image
+            required: false
+            hint: Regular pixel images you'd take with a camera, like .png, .jpeg, .gif, etc.
+
+          - label: Animation
+            name: animation
+            widget: file
+            required: false
+            hint: Lottie .json animation file.
+
+          - label: HTML
+            name: html
+            widget: text
+            required: false
+            hint: Go wild in here, if you know da codes.
+
+          - label: Collage
+            name: collageImages
+            widget: list
+            required: false
+            hint: These images will all lay on top of one another, so they should have the same dimensions, and some transparency.
+            fields:
+              
+              - name: image
+                widget: image
+                label: Image
+
+          - label: Collage title
+            name: title
+            widget: string
+            required: false
+            hint: Only used on the collage. Hover over the collage to see this.
+
+
+          - label: Collage effect type
+            name: collageEffect
+            widget: select
+            options: ["build", "parallax"]
+
+          - label: Videos
+            name: videos
+            widget: list
+            required: false
+            hint: These videos can also all lay on top of one another if you use .webm with transparency. Or you could just have 1 video.
+            fields:
+            
+              - name: video
+                widget: object
                 fields:
-                  - label: Video URL
-                    name: videoURL
+                  - name: video
+                    widget: file
+                    label: Video
+
+                  - name: id
+                    label: Id
                     widget: string
+                    hint: Just another unique identifier for this specific video. For da codes
+                
+                  - name: playOnceThenRemove
+                    widget: boolean
+                    default: false
+                    label: Play once then remove?
 
-          - label: SEO Description
-            name: seoDescription
+                  - name: playAfterPreviousFinishes
+                    widget: boolean
+                    default: false
+                    label: Play after previous finishes?
+
+                  - name: loop
+                    widget: boolean
+                    default: true
+                    label: Loop?
+
+
+
+          - name: className
+            label: CSS class name
+            widget: string
             required: false
-            widget: string
-            hint: This is used by the description meta tag.
+            hint: Go wild again – if you know da codes.
 
-          - label: SEO Keywords
-            name: seoKeywords
+          - name: appearOnScroll
+            label: Appear on scroll effect
+            widget: boolean
+            default: false
+
+          - name: appearOnScrollDelay
+            label: Appear on scroll effect
+            widget: number
+            min: 0
+            max: 5
             required: false
-            widget: string
-            hint: This is used by the keywords meta tag.
+            hint: The higher the number, the longer the delay.
 
-      - file: src/pages/about/index.md
-        label: About
-        name: about
-        fields:
-          - label: Template Key
-            name: templateKey
-            widget: hidden
-            default: about-page
 
-          - label: Title
-            name: title
-            widget: string
-            hint: This is used both by the title meta tag and the <h1> tag in the HTML.
 
-          - label: SEO Description
-            name: seoDescription
-            required: false
-            widget: string
-            hint: This is used by the description meta tag.
 
-          - label: SEO Keywords
-            name: seoKeywords
-            required: false
-            widget: string
-            hint: This is used by the keywords meta tag.
 
-      - file: src/pages/contact/index.md
-        label: Contact
-        name: contact
-        fields:
-          - label: Template Key
-            name: templateKey
-            widget: hidden
-            default: contact-page
 
-          - label: Title
-            name: title
-            widget: string
-            hint: This is used both by the title meta tag and the <h1> tag in the HTML.
 
-          - label: SEO Description
-            name: seoDescription
-            required: false
-            widget: string
-            hint: This is used by the description meta tag.
 
-          - label: SEO Keywords
-            name: seoKeywords
-            required: false
-            widget: string
-            hint: This is used by the keywords meta tag.
+
+      - label: SEO Description
+        name: seoDescription
+        required: false
+        widget: string
+        hint: This is used by the description meta tag.
+
+      - label: SEO Keywords
+        name: seoKeywords
+        required: false
+        widget: string
+        hint: This is used by the keywords meta tag.
