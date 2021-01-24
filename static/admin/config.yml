@@ -215,7 +215,7 @@ collections:
             default: false
 
           - name: appearOnScrollDelay
-            label: Appear on scroll effect
+            label: Appear on scroll delay
             widget: number
             min: 0
             max: 5
