@@ -47,16 +47,7 @@ collections:
                 widget: string
                 
 
-                
-          - label: Link One Label
-            hint: This link will go to the '/line-art' directory
-            name: link1Text
-            widget: string
-
-          - label: Link Two Label
-            hint: This link will go to the '/collage' directory
-            name: link2Text
-            widget: string
+              
 
           - label: SEO Description
             name: seoDescription
