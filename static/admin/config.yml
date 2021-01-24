@@ -72,7 +72,7 @@ collections:
 
 
   - name: galleries
-    label: Articles
+    label: Galleries
     create: true
     preview_path: /gallery/{{slug}}
     editor:

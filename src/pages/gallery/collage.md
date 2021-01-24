@@ -1,6 +1,6 @@
 ---
 templateKey: gallery-page
-title: Line art
+title: Collage
 items:
   - type: collage
     width: 7
