@@ -79,9 +79,9 @@ module.exports = {
     );
   },
   siteMetadata: {
-    title: `Site Title`,
-    titleTemplate: `%s - Site Title`,
-    description: `Site Title is...`,
+    title: `Mud`,
+    titleTemplate: `%s - Mud`,
+    description: `Mud is...`,
     keywords: `Site,keywords`,
     author: `danielcourtness@gmail.com`,
     url: ``,
@@ -93,13 +93,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Site Title`,
-        short_name: `site-title`,
+        name: `Mud`,
+        short_name: `mud`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `${__dirname}/src/assets/images/favicon.png`
+        icon: `${__dirname}/src/assets/images/favicon.ico`
       }
     },
     // {
