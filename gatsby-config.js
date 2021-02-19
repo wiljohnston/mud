@@ -215,7 +215,7 @@ module.exports = {
       resolve: `gatsby-plugin-netlify-headers`,
       options: {
         headers: {
-          "/*": [`X-Frame-Options: "ALLOW-FROM https://wjohnston.dev"`]
+          "/*": [`X-Frame-Options: ALLOW-FROM https://wjohnston.dev`]
         }
       }
     }
