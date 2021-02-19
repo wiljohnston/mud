@@ -14,6 +14,8 @@ const ArtCollection = ({ className, items }) => {
   const [videosPlayingNow, setVideosPlayingNow] = useState({});
   const [hoveringNow, setHoveringNow] = useState({});
 
+  console.log(`items`, items);
+
   const toCallOnceLoaded = [];
 
   useEffect(() => {

@@ -210,6 +210,14 @@ module.exports = {
       }
     },
     `gatsby-plugin-netlify-cms`,
-    `gatsby-plugin-netlify`
+    `gatsby-plugin-netlify`,
+    {
+      resolve: `gatsby-plugin-netlify-headers`,
+      options: {
+        headers: {
+          "/*": [`X-Frame-Options: "ALLOW-FROM https://wjohnston.dev"`]
+        }
+      }
+    }
   ]
 };
